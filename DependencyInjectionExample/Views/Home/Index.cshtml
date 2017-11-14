@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>Controller Transient</td>
+                    <td>@ViewBag.Transient.OperationId</td>
+                </tr>
+                <tr>
+                    <td>Service Transient</td>
+                    <td>@ViewBag.Service.Transient.OperationId</td>
+                </tr>
+                <tr>
+                    <td>Controller Scoped</td>
+                    <td>@ViewBag.Scoped.OperationId</td>
+                </tr>
+                <tr>
+                    <td>Service Scoped</td>
+                    <td>@ViewBag.Service.Scoped.OperationId</td>
+                </tr>
+                <tr>
+                    <td>Controller Singleton</td>
+                    <td>@ViewBag.Singleton.OperationId</td>
+                </tr>
+                <tr>
+                    <td>Service Singleton</td>
+                    <td>@ViewBag.Service.Singleton.OperationId</td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+</div>
