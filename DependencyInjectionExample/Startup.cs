@@ -25,11 +25,12 @@ namespace DependencyInjectionExample
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            
+            services.AddTransient<OperationService, OperationService>();
             services.AddTransient<IOperationTransient, Operation>();
             services.AddScoped<IOperationScoped, Operation>();
             services.AddSingleton<IOperationSingleton, Operation>();
             services.AddSingleton<IOperationSingletonInstance>(new Operation(Guid.Empty));
-            services.AddTransient<OperationService, OperationService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,12 +48,13 @@ namespace DependencyInjectionExample
 
             app.UseStaticFiles();
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+            app.UseMvcWithDefaultRoute();
+            //app.UseMvc(routes =>
+            //{
+            //    routes.MapRoute(
+            //        name: "default",
+            //        template: "{controller=Home}/{action=Index}/{id?}");
+            //});
         }
     }
 }

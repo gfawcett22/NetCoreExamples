@@ -43,6 +43,17 @@ namespace MiddlewareExample
             else
             {
                 app.UseExceptionHandler("/Error");
+
+                // Simple exception handler
+                //app.UseExceptionHandler(appBuilder =>
+                //{
+                //    do logging
+                //    appBuilder.Run(async context =>
+                //    {
+                //        context.Response.StatusCode = 500;
+                //        await context.Response.WriteAsync("A server error occured.");
+                //    });
+                //});
             }
 
             app.UseStaticFiles();
