@@ -1,0 +1,41 @@
+﻿@page
+@model CustomersModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Customers";
+}
+
+<div class="row">
+    <form method="post">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td></td>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Country</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var customer in Model.Customers)
+                {
+                    <tr>                        
+                        <td>
+                            <button type="submit" class="btn button-primary"
+                                    asp-page-handler="delete" 
+                                    asp-route-id="@customer.Id">Delete</button>
+                        </td>
+                        <td>@customer.Id</td>
+                        <td>@customer.Name</td>
+                        <td>@customer.Address</td>
+                        <td>@customer.Country</td>
+                    </tr>
+                }
+                @if (Model.Customers.Count() == 0) {
+                    <tr><td colspan="5"><span>No records to display</span></td></tr>
+                }              
+            </tbody>
+        </table>
+    </form>
+</div>
